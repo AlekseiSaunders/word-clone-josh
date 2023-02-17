@@ -1,6 +1,7 @@
 import React from 'react';
+import InputField from '../InputField';
 
-function GuessInput({ addGuess }) {
+function GuessInput({ addGuess, winner, endGame, guesses, answer }) {
   const [guess, setGuess] = React.useState('');
 
   return (
@@ -14,16 +15,22 @@ function GuessInput({ addGuess }) {
         }}
       >
         <label htmlFor="guess-input">Enter Guess:</label>
-        <input
-          required
-          id="guess-input"
-          type="text"
-          pattern="[a-zA-Z]{5,5}"
-          value={guess}
-          onChange={(event) => {
-            setGuess(event.target.value.toUpperCase());
-          }}
-        ></input>
+        {endGame ? (
+          <div className="sad banner">
+            <p>
+              Sorry, the correct answer is <strong>{answer}</strong>.
+            </p>
+          </div>
+        ) : !winner ? (
+          <InputField guess={guess} setGuess={setGuess} />
+        ) : (
+          <div className="happy banner">
+            <p>
+              <strong>Congratulations!</strong> Got it in
+              <strong> {guesses.length} guesses</strong>.
+            </p>
+          </div>
+        )}
       </form>
     </>
   );
