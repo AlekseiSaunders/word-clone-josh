@@ -14,17 +14,14 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
 
   function addGuess(guess) {
-    let newGuess = {
-      guess,
-      id: Math.random(),
-    };
+    let newGuess = guess
     let nextGuesses = [...guesses, newGuess];
     setGuesses(nextGuesses);
   }
 
   return (
     <>
-      <GuessResults guesses={guesses} />
+      <GuessResults answer={answer} guesses={guesses} />
       <GuessInput addGuess={addGuess} />
     </>
   );
