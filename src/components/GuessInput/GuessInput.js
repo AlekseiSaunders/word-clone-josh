@@ -9,7 +9,7 @@ function GuessInput({ addGuess }) {
         className="guess-input-wrapper"
         onSubmit={(event) => {
           event.preventDefault();
-          addGuess(guess)
+          addGuess(guess);
           setGuess('');
         }}
       >
@@ -25,7 +25,6 @@ function GuessInput({ addGuess }) {
           }}
         ></input>
       </form>
-      <p>Your Guess is: {guess}</p>
     </>
   );
 }
