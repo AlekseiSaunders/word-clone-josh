@@ -20,7 +20,6 @@ function Game() {
     };
     let nextGuesses = [...guesses, newGuess];
     setGuesses(nextGuesses);
-    console.log(nextGuesses);
   }
 
   return (
