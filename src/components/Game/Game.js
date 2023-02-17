@@ -23,7 +23,7 @@ function Game() {
     if (guess === answer) {
       setWinner(true);
     }
-    if (guesses.length === NUM_OF_GUESSES_ALLOWED - 1) {
+    if (nextGuesses.length >= NUM_OF_GUESSES_ALLOWED) {
       setEndGame(true);
     }
   }
